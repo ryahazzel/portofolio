@@ -8,6 +8,8 @@ import { ExperienceSection } from "@/components/experience-section"
 import { ContactSection } from "@/components/contact-section"
 
 export const revalidate = 60
+export const dynamic = "force-dynamic"
+
 
 export default async function Home() {
     const [profileRows, projectRows, images, experiences] = await Promise.all([
