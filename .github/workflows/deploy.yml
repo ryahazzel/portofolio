@@ -16,6 +16,14 @@ jobs:
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tags: tag:ci
 
+      - name: Debug secret length (safe, no leaking)
+        run: |
+          echo "SERVER_HOST length: ${#SERVER_HOST}"
+          echo "SERVER_USER length: ${#SERVER_USER}"
+        env:
+          SERVER_HOST: ${{ secrets.SERVER_HOST }}
+          SERVER_USER: ${{ secrets.SERVER_USER }}
+
       - name: Setup SSH key
         run: |
           mkdir -p ~/.ssh
